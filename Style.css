@@ -1,0 +1,359 @@
+/* COLOR PALETTE */
+:root {
+    --c1: #2F72B6;
+    --c2: #D1D1EF;
+    --c3: #6DA5E3;
+    --c4: #97BCF0;
+    --c5: #3CBCF7;
+    --c6: #0C1A2B;
+    --c7: #575892;
+    --c8: #9D88C8;
+    --c9: #706870;
+    --c10: #C09CBC;
+}
+
+/* GLOBAL */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Fredoka", sans-serif;
+    transition: background 1s ease, color 1s ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    image-rendering: pixelated;
+}
+
+/* DAY THEME */
+body.day {
+    background-image:
+        url("assets/day.png"),
+        linear-gradient(180deg, var(--c4), var(--c2));
+    color: var(--c6);
+}
+
+/* NIGHT THEME */
+body.night {
+    background-image:
+        url("assets/night.png"),
+        linear-gradient(180deg, var(--c6), var(--c7));
+    color: var(--c2);
+}
+
+body.night .intro-card,
+body.night #typing-target,
+body.night #typing-target *,
+body.night #cursor {
+    color: #3A4A7A !important;
+}
+
+/* NAME HEADER */
+.name-header {
+    margin: 40px auto 10px auto;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 0 12px rgba(0,0,0,0.4), 0 0 18px rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+}
+
+/* NAVBAR */
+nav {
+    width: 100%;
+    padding: 14px 0;
+    background: var(--c8);
+    border-bottom: 2px solid var(--c7);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.nav-list li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.25);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 14px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.nav-list li a:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.35);
+}
+
+.nav-text {
+    position: absolute;
+    z-index: 2;
+    transition: opacity 0.25s ease;
+}
+
+.nav-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.25s ease;
+}
+
+.nav-list li a:hover .nav-text {
+    opacity: 0;
+}
+
+.nav-list li a:hover .nav-img {
+    opacity: 1;
+}
+
+/* INTRO CARD */
+.intro-card {
+    width: 600px;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+    padding: 28px;
+    border-radius: 18px;
+    margin: 20px auto;
+    border: 2px solid var(--c10);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+/* GIF BOX */
+.gif-box {
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: 2px solid var(--c10);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.gif-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* TYPING TEXT */
+#typing-target {
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+    max-width: 85%;
+    white-space: normal;
+}
+
+#cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--c6);
+    margin-left: 2px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* STARS */
+.stars {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+body.night .stars {
+    opacity: 1;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, white 50%, transparent),
+        radial-gradient(2px 2px at 80% 20%, white 50%, transparent),
+        radial-gradient(2px 2px at 50% 70%, white 50%, transparent),
+        radial-gradient(2px 2px at 30% 80%, white 50%, transparent),
+        radial-gradient(2px 2px at 70% 60%, white 50%, transparent);
+    animation: twinkle 3s infinite ease-in-out alternate;
+}
+
+/* ——————————————————————————————— */
+/* FOOD PAGE — MATCH TRAVEL THEME */
+/* ——————————————————————————————— */
+
+.food-wrapper {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto 60px auto;
+    text-align: center;
+}
+
+/* Slideshow card */
+.food-slideshow {
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 18px;
+    border: 2px solid var(--c10);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-bottom: 20px;
+}
+
+.food-slideshow img {
+    width: 100%;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.food-slideshow img:hover {
+    transform: scale(1.03);
+}
+
+/* Description card */
+.food-description {
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 18px;
+    border: 2px solid var(--c10);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-size: 1.05rem;
+    line-height: 1.6rem;
+    color: var(--c6);
+}
+
+/* ——————————————————————————————— */
+/* RELIGION PAGE — NEW CARD LAYOUT */
+/* ——————————————————————————————— */
+
+.frame-slider {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin: 60px auto;
+}
+
+.frame-card {
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 18px;
+    border: 2px solid var(--c10);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.frame-card img {
+    width: 500px;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.25s ease;
+}
+
+.frame-card img:hover {
+    transform: scale(1.03);
+}
+
+.nav-card {
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+    padding: 18px 26px;
+    border-radius: 16px;
+    border: 2px solid var(--c10);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--c6);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+    user-select: none;
+}
+
+.nav-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.9);
+}
+
+/* Instruction card */
+.instruction-card {
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+    padding: 16px 22px;
+    border-radius: 18px;
+    border: 2px solid var(--c10);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    width: 540px;
+    margin: 20px auto 40px auto;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--c6);
+}
+
+/* ——————————————————————————————— */
+/* FEEDBACK WIDGET */
+/* ——————————————————————————————— */
+
+.feedback-widget {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.feedback-gif {
+    width: 95px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.feedback-gif:hover {
+    transform: scale(1.1);
+}
+
+.feedback-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    padding: 10px 16px;
+    border-radius: 14px;
+    font-size: 1rem;
+    color: #445c3f;
+    font-weight: 600;
+    border: 1.5px solid rgba(255,255,255,0.7);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
