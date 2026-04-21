@@ -1,0 +1,92 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-LP3h6b3GknaGoKsLv4xOu.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <title>Ayesha's Space</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+<nav>
+    {% include navbar.html %}
+</nav>
+
+<header>
+    <div class="name-header">Ayesha</div>
+</header>
+
+<div class="intro-card">
+
+    <div class="gif-box">
+        <img id="corner-gif" src="assets/cat.gif">
+    </div>
+
+    <p id="typing-target">
+        <span id="cursor">|</span>
+    </p>
+
+</div>
+
+<div class="stars"></div>
+
+<script>
+    /* DAY / NIGHT MODE */
+    const hour = new Date().getHours();
+    if (hour >= 18 || hour < 6) {
+        document.body.classList.add("night");
+    } else {
+        document.body.classList.add("day");
+    }
+
+    /* TYPING EFFECT */
+    const text = "I am applying for the Front‑End Engineer role because Procreate is a product I genuinely care about. It has shaped the way I create, think, and express ideas, and it is one of the few tools that feels designed with both artists and engineers in mind. The opportunity to contribute to a product that has influenced my own creative process is something I am truly excited about.
+
+My background combines software development with systems thinking and a strong creative practice. I have experience working with JavaScript, React fundamentals, UI logic, structured data, and modern front‑end workflows. I enjoy building interfaces that feel intuitive, responsive, and visually thoughtful, and I naturally gravitate toward environments where design and engineering work closely together.
+
+Alongside my technical experience, I have a strong foundation in analysis and problem‑solving from working in finance and enterprise environments. This has taught me how to break down complex requirements, understand user behaviour, and deliver solutions that are reliable and maintainable. It has also strengthened my communication skills and my ability to collaborate across disciplines, which I know is essential in a creative product team.
+
+What draws me to this role is the chance to work on a product that empowers people to create. Procreate has always stood out for its simplicity, its performance, and its respect for the creative process. I would love to contribute to a team that builds tools with that level of care, precision, and imagination.
+
+Thank you for considering my application. I would welcome the opportunity to discuss how my technical skills, creative background, and genuine passion for Procreate can contribute to your team.
+
+Kind regards,
+Ayesha Rizwan";
+
+    const target = document.getElementById("typing-target");
+    const cursor = document.getElementById("cursor");
+    const gif = document.getElementById("corner-gif");
+
+    let i = 0;
+
+    function typeLetter() {
+        if (i < text.length) {
+            cursor.insertAdjacentText("beforebegin", text.charAt(i));
+            i++;
+            setTimeout(typeLetter, 80);
+        } else {
+            gif.src = "assets/cat.png";
+            cursor.style.display = "none";
+        }
+    }
+
+    typeLetter();
+</script>
+
+</body>
+</html>
